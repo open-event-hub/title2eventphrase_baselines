@@ -1,8 +1,6 @@
 ## Title2EventPhrase
 
-目录： `./title2event/Title2EventPhrase.txt
-
-包含字段：
+`train_data/train_data_demo.txt`包含字段：
 - id: 样本id
 - title: 网页标题，生成输入
 - event: 核心事件，生成目标
