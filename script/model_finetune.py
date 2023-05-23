@@ -24,6 +24,7 @@ parser.add_argument("--batch_size",default=8,type=int)
 parser.add_argument("--epoch",default=5,type=int)
 parser.add_argument("--data_dir",default="data",type=str)
 parser.add_argument("--model_arch",default="bart",type=str)
+parser.add_argument("--output_path",default="output",type=str)
 parser.add_argument("--local_rank", type=int)
 args = parser.parse_args()
 arg_dict=args.__dict__
@@ -37,7 +38,7 @@ num_gpu = torch.cuda.device_count()
 max_input_length = 80
 max_target_length = 80
 # train_data_path = os.path.join(args.data_dir, 'title_event_all_keywords.txt')
-train_data_path = os.path.join(args.data_dir, 'train_data_demo.txt')
+train_data_path = args.data_dir
 epoch_num = args.epoch
 learning_rate = arg_dict['lr']
 batch_size = arg_dict['batch_size']
@@ -46,14 +47,14 @@ with_cl = int(args.with_cl) > 0
 with_prompt = int(args.with_prompt) > 0
 if with_prompt:
     if with_cl:
-        output_dir = os.path.join('output', 'base_cls_prompt', args.model_arch)
+        output_dir = os.path.join(args.output_path, 'base_cls_prompt', args.model_arch)
     else:
-        output_dir = os.path.join('output', 'base_prompt', args.model_arch)
+        output_dir = os.path.join(args.output_path, 'base_prompt', args.model_arch)
 else:
     if with_cl:
-        output_dir = os.path.join('output', 'base_cls', args.model_arch)
+        output_dir = os.path.join(args.output_path, 'base_cls', args.model_arch)
     else:
-        output_dir = os.path.join('output', 'base', args.model_arch)
+        output_dir = os.path.join(args.output_path, 'base', args.model_arch)
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)

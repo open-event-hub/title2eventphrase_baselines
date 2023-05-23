@@ -1,1 +1,1 @@
-python ../keywords_extractor.py $1
+python keywords_extractor.py $1
