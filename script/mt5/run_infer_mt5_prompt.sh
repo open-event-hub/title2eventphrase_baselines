@@ -1,8 +1,8 @@
 test_data=$1
 
-python infer_prompt.py \
---model_path PLM/mT5 \
---weights_path output/base_prompt/mt5/model_epoch_5.pt \
+python ../infer_prompt.py \
+--model_path google/mt5-base \
+--weights_path ../../saved_weights/base_prompt/mt5/model_epoch_5.pt \
 --batch_size 1 \
 --data_dir data \
 --model_arch mt5 \

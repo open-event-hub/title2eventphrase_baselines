@@ -1,8 +1,8 @@
 test_data=$1
 
-python infer_prompt.py \
---model_path PLM/bart-large-chinese \
---weights_path output/base_cls_prompt/bart/model_epoch_5.pt \
+python ../infer_prompt.py \
+--model_path fnlp/bart-large-chinese \
+--weights_path ../../saved_weights/base_cls_prompt/bart/model_epoch_5.pt \
 --batch_size 1 \
 --data_dir data \
 --model_arch bart \

@@ -1,18 +1,23 @@
-## Title2EventPhrase
+# Title2EventPhrase
+This is the repository for the paper "Event-Centric Query Expansion in Web Search".
 
-`train_data/train_data_demo.txt`包含字段：
-- id: 样本id
-- title: 网页标题，生成输入
-- event: 核心事件，生成目标
-- topic: 事件主题
+# Quick Start
+## Requirements
+`pip install -r requirements.txt`
+## Processing the dataset
+We provide a demo of the training data:`train_data/train_data_demo.txt`,  It contains the following fields:
+- id: Sample ID
+- title:  Web page title, used as input
+- event: Core event, used as the target
+- topic: Event topic
+Users can replace it with their own data, following the same format as the demo.
 
-## 生产keyword
-
+Use the following code for data preprocessing and extracting keywords from the title:
 `cd script/preprocessing && sh run_keyword.sh ${filepath}`
 
-## 模型训练
+# Model Training and Inference
 
-BART模型：
+## BART based Model Finetune：
 
 `cd script/bart`
 - BART：`sh run_finetune_bart.sh`
@@ -20,7 +25,7 @@ BART模型：
 - BART + PG (prompt guidance)：`sh run_finetune_bart_prompt.sh`
 - BART + CL + PG：`sh run_finetune_bart_prompt_cls.sh`
 
-mT5模型：
+## mT5 based Model Finetune：
 
 `cd script/mt5`
 - mT5`sh run_finetune_mt5.sh`
@@ -28,6 +33,6 @@ mT5模型：
 - mT5 + PG (prompt guidance)：`sh run_finetune_mt5_prompt.sh`
 - mT5 + CL + PG：`sh run_finetune_mt5_prompt_cls.sh`
 
-## 生成推理
+## Generation Inference
 
 `sh run_infer_*.sh ${test_path}`
