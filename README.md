@@ -38,3 +38,12 @@ Navigate to the mT5 script folder with: `cd script/mt5`
 The test set should be formatted similarly to the training set and preprocessed with `run_keyword.sh`.
 
  The code for inference is as follows: `sh run_infer_*.sh ${test_path}`
+ 
+# Citation
+```
+@inproceedings{Zhang2023EventCentricQE,
+    title={Event-Centric Query Expansion in Web Search},
+    author={Yanan Zhang and Weijie Cui and Yangfan Zhang and Xiaoling Bai and Zhe Zhang and Jin Ma and Xiang Chen and Tianhua Zhou},
+    year={2023}
+}
+```
